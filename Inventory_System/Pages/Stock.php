@@ -93,11 +93,23 @@ if (empty($profile_image)) {
                 </a>
               </li>
 
+             <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap JS (for dropdowns) -->
+
+
               <li class="nav-item">
-                <a class="nav-link" href="computers.php">
+              <a class="nav-link" href="stock.php" data-bs-toggle="collapse" data-bs-target="#inventoryDropdown" style="color:white">
                   <span data-feather="shopping-cart"></span>
-                  Equipments
+                  Equipments <span class="float-end">&#9660;</span>
                 </a>
+        <ul class="collapse list-unstyled ps-3" id="inventoryDropdown">
+            <li><a href="computers.php"  class="nav-link">Computers</a></li>
+            <li><a href="scanners.php"  class="nav-link">Scanners & Printers</a></li>
+            <li><a href="networks.php"  class="nav-link">Network Devices</a></li>
+            <li><a href="accessories.php"  class="nav-link">Accessories</a></li>
+            <li><a href="mp_computers.php"  class="nav-link">MP Computers</a></li>
+        </ul>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">
@@ -131,22 +143,6 @@ if (empty($profile_image)) {
                 </a>
               </li>
             </ul>
-
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>View reports</span>
-              <a class="d-flex align-items-center text-muted" href="#">
-                <span data-feather="plus-circle"></span>
-              </a>
-            </h6>
-            <ul class="nav flex-column mb-2">
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Equipments Assigned
-                </a>
-              </li>
-             
-            </ul>
             <div class="side-item">
         <button class="btn btn-sm btn-outline-secondary">
         Sign Out
@@ -157,7 +153,7 @@ if (empty($profile_image)) {
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">Stock</h1>
+            <h1 class="h2">Equipments Received</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group mr-2">
               <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#assignModal">Receive Device</button>
@@ -188,12 +184,12 @@ if ($result->num_rows > 0) {
     // Start HTML table
     echo "<table class = 'styled-table' border='1'>
             <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Type</th>
+                <th>Device ID</th>
+                <th>Device Name</th>
+                <th>Device Type</th>
                 <th>Brand</th>
                 <th>Serial Number</th>
-                <th>Level</th>
+                <th>Device Level</th>
                 <th>Date Received</th>
                 <th>Received From</th>
                 <th>Received By</th>
@@ -221,7 +217,7 @@ if ($result->num_rows > 0) {
             <td>" . $row['Equipment_name'] . "</td>
             <td>" . $row['Equioment_type'] . "</td>
             <td>" . $row['Equipment_brand'] . "</td>
-            <td>" . $row['Equipment_serialNumber'] . "</td>
+            <td>" . $row['equipment_serialNumber'] . "</td>
             <td>" . $row['Equipment_level'] . "</td>
             <td>" . $row['Date_received'] . "</td>
             <td>" . $row['Received_from'] . "</td>

@@ -8,14 +8,19 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="assign_computer.php" method="POST">
+                    <form action="stock.php" method="POST">
                         <div class="mb-3">
                             <label class="form-label">Equipment Name</label>
                             <input type="text" class="form-control" name="equipment_name" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Equipment Type</label>
-                            <input type="text" class="form-control" name="equipment_type" required>
+                            <select class="form-select" name="equipment_type" required>
+                                <option value="Computer">Computer</option>
+                                <option value="Scanner/Printer">Scanner/Printer</option>
+                                <option value="Network Device">Network Device</option>
+                                <option value="Accessories">Accessores</option>
+                            </select> 
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Equipment Brand</label>
@@ -28,14 +33,14 @@
                         <div class="mb-3">
                             <label class="form-label">Equipment Level</label>
                             <select class="form-select" name="equipment_level" required>
-                                <option value="In Use">High</option>
-                                <option value="Under Maintenance">Medium</option>
-                                <option value="Under Maintenance">Low</option>
+                                <option value="High">High</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Low">Low</option>
                             </select>                       
                          </div>
                         <div class="mb-3">
                             <label class="form-label">Date Received</label>
-                            <input type="text" class="form-control" name="date_received" required>
+                            <input type="date" class="form-control" name="date_received" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Received From</label>
@@ -48,7 +53,7 @@
                         <div class="mb-3">
                             <label class="form-label">Status</label>
                             <select class="form-select" name="status" required>
-                                <option value="In Use">Available</option>
+                                <option value="Available">Available</option>
                 
                             </select>
                         </div>
@@ -88,9 +93,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               VALUES ('$equipment_name','$equipment_type','$equipment_brand', '$equipment_serial','$equipment_level' ,'$date_received', '$from', '$by', '$status', '$remark')";
 
     if (mysqli_query($conn, $query)) {
-        echo "<script>alert('Device Assigned Successfully!'); window.location.href='computers.php';</script>";
+        echo "<script>alert('Device Received Successfully from!'); window.location.href='stock.php';</script>";
     } else {
-        echo "<script>alert('Error Assigning Device');</script>";
+        echo "<script>alert('Error Receiving Device');</script>";
     }
 }
 ?>

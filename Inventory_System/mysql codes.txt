@@ -1,0 +1,21 @@
+//UNDER MAINTENANCE
+string query = "SELECT ((SELECT COUNT(*) FROM Computers WHERE status = 'Under Maintenance')+(SELECT COUNT(*) FROM Mp_computers WHERE status = 'Under Maintenance') + (SELECT COUNT(*) FROM Scanners_printers WHERE status = 'Under Maintenance') + (SELECT COUNT(*) FROM Accessories WHERE status = 'Under Maintenance') + (SELECT COUNT(*) FROM Network_devices WHERE status = 'Under Maintenance'));";
+
+
+//IN USE
+ string query = "SELECT ((SELECT COUNT(*) FROM Computers WHERE status = 'In Use')+(SELECT COUNT(*) FROM MP_Computers WHERE status = 'In Use') + (SELECT COUNT(*) FROM Scanners_printers WHERE status = 'In Use') + (SELECT COUNT(*) FROM Accessories WHERE status = 'In Use') + (SELECT COUNT(*) FROM Network_devices WHERE status = 'In Use'));";               
+
+//EQUIPMENTS ASSIGNED
+string query = "SELECT ((SELECT COUNT(*) FROM Computers) + (SELECT COUNT(*) FROM Scanners_printers) + (SELECT COUNT(*) FROM Accessories) + (SELECT COUNT(*) FROM Network_devices) + (SELECT COUNT(*) FROM Mp_computers));";
+
+//EQUIPMENTS AVAILABLE
+SELECT  COUNT(*) FROM equipment_received where status = 'Available';
+
+//STAFF ASSIGNED
+string query = "SELECT ((SELECT COUNT(DISTINCT person_assigned) FROM Computers) + (SELECT COUNT(distinct person_assigned) FROM scanners_printers) + (SELECT COUNT(distinct person_assigned) FROM Accessories) + (SELECT COUNT(distinct person_assigned) FROM Network_devices));";
+
+
+//MPS ASSIGNED
+select count( DISTINCT person_assigned) from MP_computers;
+
+

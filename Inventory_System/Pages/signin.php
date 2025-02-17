@@ -13,15 +13,16 @@
     <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../CSS/signin.css" rel="stylesheet">
+    <link href="signin.css" rel="stylesheet">
   </head>
 
+
   <body class="text-center">
- 
+ <div class = "background">
     <form class="form-signin" method="POST" action="">
       <img class="mb-4" src="../plogo.png" alt="" width="72" height="72">
       <h1 class="h3">INVENTORY MANAGEMENT </h1>
-      <h1 class="h4 mb-3">ICT DEPARTMENT</h1>
+      <h1 class="h4">ICT DEPARTMENT</h1>
    
   <div class = "labels">
       <label for="inputEmail" class="sr-only">Email Address</label>
@@ -41,7 +42,7 @@
 
     </form>
   </body>
-
+</div>
 <?php
   session_start();
 require_once '../db_connection.php';

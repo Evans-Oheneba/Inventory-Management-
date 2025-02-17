@@ -26,7 +26,7 @@ if (empty($profile_image)) {
     <script src="https://kit.fontawesome.com/8e8d9d4713.js" crossorigin="anonymous"></script>
     <link rel="icon" href="../plogo.png">
 
-    <title>Inventory - Equipment</title>
+    <title>Inventory - MP Computers</title>
     <!-- Bootstrap core CSS -->
     <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -157,8 +157,8 @@ if (empty($profile_image)) {
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group mr-2">
 <!-- Button to Trigger Modal -->
-<button class="btn btn-sm btn-outline-secondary" data-equipment="<?php echo htmlspecialchars($row['equipment_name']); ?>" data-bs-toggle="modal" data-bs-target="#assignComputerModal">Assign Device</button>
-
+<button class="btn btn-sm btn-outline-secondary" data-equipment="<?php echo htmlspecialchars($row['equipment_name']); ?>" data-bs-toggle="modal" data-bs-target="#assignMpComputerModal">Assign Device</button>
+ 
 
                 <button class="btn btn-sm btn-outline-secondary">Dispose Device</button>
                 <button class="btn btn-sm btn-outline-secondary">Retrieve Device</button>
@@ -176,7 +176,7 @@ if (empty($profile_image)) {
 require_once '../db_connection.php';
 
 // Query the users table
-$query = "SELECT * FROM computers";
+$query = "SELECT * FROM mp_computers";
 $result = $conn->query($query);
 
 // Check if there are any results
@@ -185,14 +185,13 @@ if ($result->num_rows > 0) {
     echo "<table class = 'styled-table' border='1'>
             <tr>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Brand</th>
-                <th>Serial No.</th>
-                <th>Staff</th>
-                <th>Department</th>
+                <th>Computer Name</th>
+                <th>Computer Type</th>
+                <th>Computer Brand</th>
+                <th>Serial Number</th>
+                <th>Member of Parliament</th>
+                <th>Constituency</th>
                 <th>Office</th>
-                <th>Title</th>
                 <th>Assigner</th>
                 <th>Date</th>
                 <th>Status</th>
@@ -221,10 +220,9 @@ if ($result->num_rows > 0) {
             <td>" . $row['computer_type'] . "</td>
             <td>" . $row['computer_brand'] . "</td>
             <td>" . $row['computer_serial_number'] . "</td>
-            <td>" . $row['staff_assigned'] . "</td>
-            <td>" . $row['staff_department'] . "</td>
-            <td>" . $row['staff_office'] . "</td>
-            <td>" . $row['staff_title'] . "</td>
+            <td>" . $row['mp_assigned'] . "</td>
+            <td>" . $row['constituency'] . "</td>
+            <td>" . $row['mp_office'] . "</td>
             <td>" . $row['assigned_by'] . "</td>
              <td>" . $row['date_assigned'] . "</td>
             <td><span class = 'badge $badgeColor'>" . $row['status'] . "</span></td>
@@ -245,7 +243,7 @@ if ($result->num_rows > 0) {
 $conn->close();
 ?>
 
-<?php include('assignComputer.php'); ?>
+<?php include('assignMpComputer.php'); ?>
 
 
 </div>

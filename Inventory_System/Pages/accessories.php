@@ -26,7 +26,7 @@ if (empty($profile_image)) {
     <script src="https://kit.fontawesome.com/8e8d9d4713.js" crossorigin="anonymous"></script>
     <link rel="icon" href="../plogo.png">
 
-    <title>Inventory - Equipment</title>
+    <title>Inventory - Accessories</title>
     <!-- Bootstrap core CSS -->
     <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -97,8 +97,7 @@ if (empty($profile_image)) {
 <!-- Bootstrap JS (for dropdowns) -->
 
               <li class="nav-item">
-                <a class="nav-link" href="computers.php" data-bs-toggle="collapse" data-bs-target="#inventoryDropdown" style="color:gold;">
-                  <span data-feather="shopping-cart"></span>
+              <a class="nav-link" href="scanners.php" data-bs-toggle="collapse" data-bs-target="#inventoryDropdown" style="color:gold;">                  <span data-feather="shopping-cart"></span>
                   Equipments <span class="float-end">&#9660;</span>
                 </a>
         <ul class="collapse list-unstyled ps-3" id="inventoryDropdown">
@@ -153,11 +152,11 @@ if (empty($profile_image)) {
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">Computers</h1>
+            <h1 class="h2">Accessories</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group mr-2">
 <!-- Button to Trigger Modal -->
-<button class="btn btn-sm btn-outline-secondary" data-equipment="<?php echo htmlspecialchars($row['equipment_name']); ?>" data-bs-toggle="modal" data-bs-target="#assignComputerModal">Assign Device</button>
+<button class="btn btn-sm btn-outline-secondary" data-equipment="<?php echo htmlspecialchars($row['equipment_name']); ?>" data-bs-toggle="modal" data-bs-target="#assignAccessoryModal">Assign Device</button>
 
 
                 <button class="btn btn-sm btn-outline-secondary">Dispose Device</button>
@@ -176,7 +175,7 @@ if (empty($profile_image)) {
 require_once '../db_connection.php';
 
 // Query the users table
-$query = "SELECT * FROM computers";
+$query = "SELECT * FROM accessories";
 $result = $conn->query($query);
 
 // Check if there are any results
@@ -185,16 +184,16 @@ if ($result->num_rows > 0) {
     echo "<table class = 'styled-table' border='1'>
             <tr>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Brand</th>
-                <th>Serial No.</th>
+                <th>Device Name</th>
+                <th>Device Type</th>
+                <th>Device Brand</th>
+                <th>Serial Number</th>
                 <th>Staff</th>
                 <th>Department</th>
                 <th>Office</th>
                 <th>Title</th>
                 <th>Assigner</th>
-                <th>Date</th>
+                <th>Date Assigned</th>
                 <th>Status</th>
            
                 
@@ -216,11 +215,11 @@ if ($result->num_rows > 0) {
   }
 
         echo "<tr>
-            <td>" . $row['computer_id'] . "</td>
-            <td>" . $row['computer_name'] . "</td>
-            <td>" . $row['computer_type'] . "</td>
-            <td>" . $row['computer_brand'] . "</td>
-            <td>" . $row['computer_serial_number'] . "</td>
+            <td>" . $row['device_id'] . "</td>
+            <td>" . $row['device_name'] . "</td>
+            <td>" . $row['device_type'] . "</td>
+            <td>" . $row['device_brand'] . "</td>
+            <td>" . $row['device_serial_number'] . "</td>
             <td>" . $row['staff_assigned'] . "</td>
             <td>" . $row['staff_department'] . "</td>
             <td>" . $row['staff_office'] . "</td>
@@ -238,14 +237,14 @@ if ($result->num_rows > 0) {
     // End HTML table
     echo "</table>";
 } else {
-    echo "No Computers Assigned.";
+    echo "No Devices Assigned.";
 }
 
 // Close the connection
 $conn->close();
 ?>
 
-<?php include('assignComputer.php'); ?>
+<?php include('assignAccessory.php'); ?>
 
 
 </div>

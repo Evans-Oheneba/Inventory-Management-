@@ -14,66 +14,96 @@ body {
  */
 
 .sidebar {
-  position: fixed;
+  position: relative;
   width: 900px;
+  height: calc(100vh - 48px);
   top: 0;
   bottom: 0;
-  left: 0;
   z-index: 100; /* Behind the navbar */
   padding: 0;
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
-  
-  
+  margin-left: -12px;
 }
 
 .sidebar-sticky {
   position: -webkit-sticky;
   position: sticky;
-  top: 48px; /* Height of navbar */
-  height: calc(100vh - 48px);
+  /*top: 48px; /* Height of navbar */
+  height: calc(100vh - 8px);
   width: 225px;
-  padding-top: .1rem;
-  overflow-x: hidden;
+  padding-top: 20px;
   overflow-y: hidden; /* Scrollable contents if viewport is shorter than content. */
+  background-color: #1e3b29;
+
 }
 
 .sidebar .nav-link {
   font-weight: 500;
   font-size: 13.1px;
-  color: #333;
-  padding-top: 25px;
+  color: #ffffff;
+  padding-top: 35px;
   padding-left: 30px;
 
 }
 
+.sidebr .nav-link:active{
+  color: gold;
+}
+
+
+.sidebar ul.list-group a {
+  display: block;
+  padding: 8px 15px;
+  text-decoration: none;
+  
+
+}
+
+
+
+.sidebar ul.list-group a:hover {
+  background-color: #1e3b29;
+  color: gold;
+}
+
+.sidebar ul.collapse {
+  background-color:#1e3b29;
+  padding-left: 50px;
+}
+
+
 .sidebar .btn{
   font-weight: 500;
   font-size: 14px;
-  color: #013d18;
+  color: #ffffff;
   margin-left: 40px;
   margin-top: 35px;
   padding: 6px;
 
 }
 .sidebar .btn:hover{
-  color: #ffffff;
+  color: gold;
+  background-color: black;
 }
 
 .sidebar .nav-link .feather {
   margin-right: 8px;
-  color: #999;
+  color: #ffffff;
 }
 
 .sidebar .nav-link.active {
-  color: #ffffffe3;
-  background-color: rgb(8, 63, 31);
+  color: gold;
   align-items: center;
   padding-top: 16px;
 }
 
 .sidebar .nav-link:hover .feather,
 .sidebar .nav-link.active .feather {
-  color: inherit;
+  color: rgb(136, 116, 0);
+}
+
+.sidebar .nav-link:hover {
+  color: rgb(136, 116, 0);
 }
 
 .sidebar-heading {
@@ -85,7 +115,7 @@ body {
  * Navbar
  */
 .navbar{
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(85, 8, 8);
 
 
 }
@@ -114,16 +144,18 @@ body {
   display: inline-flex;
   width: 100%;
   height: 40px;
+  border:solid 1px rgb(224, 223, 223);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
  }
 
 .brand {
-  color: rgb(1, 44, 11);
+  color: rgb(22, 20, 1);
   width: 220px;
   font-weight: bolder;
   padding-top: .65rem;
   padding-bottom: .75rem;
   padding-left: 10px;
-  font-size: 15px;
+  font-size: 17px;
 font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
 }
 
@@ -282,15 +314,14 @@ display: none;
 }
 
 .h2{
-  font-size: 20px;
+  font-size: 18px;
 }
 
 /*STOCK CSS*/
 .table-display{
     width: 100%;
     border-collapse: collapse;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+
     overflow: hidden;
     background-color: white;
 }
@@ -388,25 +419,25 @@ font-weight: 500;
 
 /* Count Number */
 .count {
-  font-size: 17px;
+  font-size: 19px;
   color: #130068;
   margin: 10px 0 0;
   text-align: center;
 }
 .count3 {
-  font-size: 17px;
+  font-size: 19px;
   color: #dab903;
   margin: 10px 0 0;
   text-align: center;
 }
 .count1 {
-  font-size: 17px;
+  font-size: 19px;
   color: #02502c;
   margin: 10px 0 0;
   text-align: center;
 }
 .count2 {
-  font-size: 17px;
+  font-size: 19px;
   color: #8d0000;
   margin: 10px 0 0;
   text-align: center;
@@ -463,19 +494,19 @@ font-weight: 500;
 
 /* Number display */
 .count4 {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   color: #100357;
 }
 
 .count41 {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   color: #02361e;
 }
 
 .count42 {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   color: #ff0000;
 }
@@ -532,6 +563,7 @@ font-weight: 500;
   height: 200px;
   margin-left: 150px;
   margin-top: 5px;
+
 }
 
 .chart-container .invent-h{

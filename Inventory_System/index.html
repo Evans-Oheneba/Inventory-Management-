@@ -1,13 +1,15 @@
+
 <!doctype html>
 <html lang="en">
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="plogo.png">
-
-    <title>Dashboard</title>
+    <script src="https://kit.fontawesome.com/8e8d9d4713.js" crossorigin="anonymous"></script>
+    <title>Inventory - Dashboard</title>
 
     <!-- Bootstrap core CSS -->
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
@@ -18,13 +20,36 @@
 
   <body>
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Inventory Management </a>
-      <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
-      <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-          <a class="nav-link" href="#">Sign out</a>
-        </li>
-      </ul>
+      <div class="navbar-tops">
+    <label class="logo1"><img src = plogo.png></label>
+
+      <div class="brand" href="#">Inventory Management  </div>
+
+        <!--<input class="form-control" type="text" placeholder="Search" aria-label="Search">-->
+      <div class="search-box">
+    <button class="btn-search"><i class="fas fa-search"></i></button>
+    <input type="text" class="input-search" placeholder=".     .search here">
+  </div>
+
+        <div class="side-item">
+     
+        </div>
+        <div class="nav-item">
+
+        <!-- Notification Icon -->
+    <div class="notification-container">
+        <i class="fa fa-bell"></i> <!-- Bell icon -->
+        <span class="notification-badge" id="notification-count">2</span> <!-- Badge -->
+    </div>
+
+
+       <!-- <label class="logo2"><img src = Images/us.png></label>-->
+       <label class="logo2"> <span data-feather="settings"></span></label>
+        <img src="" class="profile-img" alt="Profile Picture">
+        <span class="status-dot active"></span>
+          <a class="nav-link" href="Pages/signin.php"><?php echo htmlspecialchars($username); ?></a>
+        </div>
+      </div>
     </nav>
 
     <div class="container-fluid">
@@ -32,28 +57,56 @@
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
+
               <li class="nav-item">
                 <a class="nav-link active" href="#">
                   <span data-feather="home"></span>
                   Dashboard <span class="sr-only">(current)</span>
                 </a>
               </li>
+
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="Pages/Stock.php">
                   <span data-feather="file"></span>
                   Stock
                 </a>
               </li>
+
+            <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap JS (for dropdowns) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+              <li class="nav-item">
+                <a class="nav-link"  href="Pages/computers.php" data-bs-toggle="collapse" data-bs-target="#inventoryDropdown">
+                  <span data-feather="shopping-cart"></span>
+                  Equipments <span class="float-end">&#9660;</span>
+                </a>
+        <ul class="collapse list-unstyled ps-3" id="inventoryDropdown">
+            <li><a href="equipment_received.php"  class="nav-link">Equipment Received</a></li>
+            <li><a href="assign_devices.php" class="nav-link">Assign Devices</a></li>
+            <li><a href="devices_report.php"  class="nav-link">Devices Report</a></li>
+        </ul>
+              </li>
+
+              
               <li class="nav-item">
                 <a class="nav-link" href="#">
-                  <span data-feather="shopping-cart"></span>
-                  Equipments
+                  <span data-feather="plus-circle"></span>
+                  Assign Device
+                </a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="bar-chart-2"></span>
+                 Under Maintenance
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">
                   <span data-feather="users"></span>
-                 Under Maintenance
+                  Staff
                 </a>
               </li>
               <li class="nav-item">
@@ -68,61 +121,245 @@
                   User Management
                 </a>
               </li>
-            </ul>
-
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Saved reports</span>
-              <a class="d-flex align-items-center text-muted" href="#">
-                <span data-feather="plus-circle"></span>
-              </a>
-            </h6>
-            <ul class="nav flex-column mb-2">
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Equipments Assigned
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Equipments Available
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Departments Details
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                 MP Computers
-                </a>
-              </li>
-            </ul>
+            </ul>    
+            
+            <a class="btn btn-sm btn-outline-secondary" href = "Pages/signin.php">
+        Sign Out
+</a>
           </div>
         </nav>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">Dashboard</h1>
-            <div class="btn-toolbar mb-2 mb-md-0">
-              <div class="btn-group mr-2">
-                <button class="btn btn-sm btn-outline-secondary">Share</button>
-                <button class="btn btn-sm btn-outline-secondary">Export</button>
-              </div>
-              <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                <span data-feather="calendar"></span>
-                This week
-              </button>
-            </div>
-          </div>
+ <label class = "invent-h">System Summary</label>   
+<div class = "main-box">
 
-          <h2>Section title</h2>
-     
-       
+  <div class = "dash-container">
+    <div class="equipment-box">
+        <div class="content">
+        <h2 class="count"><?php echo $total_assigned;?></h2>
+            <p1 class="description">Qty</p> 
+            <p class="description">Equipments Assigned</p> 
+        </div>
+    </div>
+
+    <div class="equipment-box1">
+        <div class="content">
+        <h2 class="count1"><?php echo $total_available;?></h2>
+        <p1 class="description">Qty</p> 
+            <p class="description">Equipments Available</p> 
+        </div>
+    </div>
+
+    <div class="equipment-box1">
+        <div class="content">
+        <h2 class="count2"><?php echo $total_staff;?></h2>
+        <p1 class="description">Qty</p> 
+            <p class="description">Assigned Staff</p> 
+        </div>
+    </div>
+
+    <div class="equipment-box1">
+        <div class="content">
+        <h2 class="count3"><?php echo $total_mp;?></h2>
+        <p1 class="description">Qty</p> 
+            <p class="description">Assigned MPs</p> 
+        </div>
+    </div>
+ </div>
+  <!-- Equipment Box -->
+<div class = "invent-sum">
+  <label class = "invent-h">Inventory Summary</label>
+    <div class="equipment-box4">
+        <div class="description4">Equipments Received</div>
+        <div class="separator4"></div>
+        <div class="count4"><?php echo $total_received;?></h3></div>
+    </div>
+
+    <div class="equipment-box4">
+        <div class="description4">Equipments In Use</div>
+        <div class="separator4"></div>
+        <div class="count41"><?php echo $total_inUse;?></div>
+    </div>
+
+    <div class="equipment-box4">
+        <div class="description4">Equipments Under Maintenance</div>
+        <div class="separator4"></div>
+        <div class="count42"><?php echo $total_underMaint;?></div>
+    </div>
+</div>
+</div>
+
+<!--EQUIPMENTS SUMMARY TABLE-->
+<label class = "invent-h">Equipment Summary</label>
+<div class = "equipment-main">
+
+  <table class = "equip-table">
+
+       <thead>
+            <tr>
+                <th>No.</th>
+                <th>Equipment</th>
+                <th>In Use</th>
+                <th>Under Maintenance</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td><img src="Images/desktop.ico" alt="Computer"> Computers</td>
+                <td><?php //echo $total_computers;?></td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><img src="Images/scana.ico" alt="scanners/Printers"> Scanners/Printers</td>
+                <td><?php echo $total_scanners_inUse?></td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><img src="Images/server.ico" alt="Network Devices"> Network Devices</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td><img src="Images/access.ico" alt="Accessories"> Accessories</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        </tbody>
+    </table>
+
+  <div class = "graph">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <div class="chart-container">
+    <label class = "invent-h">Computers Status</label>
+        <canvas id="computersChart"></canvas>
+    </div>
+  </div>
+</div>
+
+
+    <script>
+        var ctx = document.getElementById('computersChart').getContext('2d');
+        var computersChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['In Use', 'Available'],
+                datasets: [{
+                    data: [500, 200],  // 500 in use, 200 available
+                    backgroundColor: ['gold', '#ddd']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    </script>
+
+
+        <br>
+        <br>
+<label class = "invent-h">Recently Assigned Devices</label>
+
+
+
+
+<!-- Display the Total Devices Count -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+// Include the database connection
+require_once 'db_connection.php';
+?>       
         </main>
       </div>
     </div>
@@ -140,44 +377,3 @@
     <script>
       feather.replace()
     </script>
-
-    <!-- Graphs -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-    <script>
-      var ctx = document.getElementById("myChart");
-      var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-          datasets: [{
-            data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
-            lineTension: 0,
-            backgroundColor: 'transparent',
-            borderColor: '#007bff',
-            borderWidth: 4,
-            pointBackgroundColor: '#007bff'
-          }]
-        },
-        options: {
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: false
-              }
-            }]
-          },
-          legend: {
-            display: false,
-          }
-        }
-      });
-    </script>
-
-
-
-
-
-
-
-  </body>
-</html>

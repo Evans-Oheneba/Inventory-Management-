@@ -9,9 +9,19 @@ body {
   align-items: center;
   -webkit-box-pack: center;
   justify-content: center;
-  padding-top: 40px;
+  padding-top: 30px;
   padding-bottom: 40px;
+  background-image: url("../Images/palr.jpg");
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
+
+p{
+  color:white;
+}
+
 
 .form-signin {
   width: 100%;
@@ -19,6 +29,35 @@ body {
   padding: 15px;
   margin: 0 auto;
 }
+
+.form-signin .h3{
+    font-weight: bolder;
+    font-size: 35px;
+    width: 800px;
+    padding-right: 100px;
+    margin-left: -180px;
+    color:rgb(0, 0, 0);
+  }
+
+  .form-signin .h4{
+    color:white;
+  }
+  .form-signin .labels{
+    margin-top: 70px;
+    color:rgb(0, 0, 0);
+  }
+
+  .btn{
+    color: rgb(255, 255, 255);
+    background-color: rgb(4, 71, 4);
+    border-color: rgb(6, 58, 2);
+  }
+
+  .btn:hover{
+    color: rgb(255, 255, 255);
+    background-color: rgb(3, 53, 3);
+    border-color: rgb(6, 58, 2);
+  }
 
 .form-signin .checkbox {
   font-weight: 400;
@@ -29,17 +68,20 @@ body {
   height: auto;
   padding: 10px;
   font-size: 16px;
+  color:rgb(0, 0, 0);
+
 }
 .form-signin .form-control:focus {
   z-index: 2;
 }
 .form-signin input[type="email"] {
-  margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
+  margin-top: 10px;
 }
 .form-signin input[type="password"] {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+  margin-top: 10px;
 }
